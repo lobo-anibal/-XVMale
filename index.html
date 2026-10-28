@@ -347,22 +347,19 @@
           <p class="text-[10px] uppercase tracking-widest text-[color:var(--muted)]">Titular</p>
           <p class="font-medium text-sm" id="bankHolder">María Laura Gómez</p>
         </div>
-        <div class="flex items-center justify-between gap-2">
-          <div class="min-w-0">
-            <p class="text-[10px] uppercase tracking-widest text-[color:var(--muted)]">Alias</p>
-            <p class="font-semibold text-sm truncate" id="bankAlias">MALE.XV.FIESTA</p>
-          </div>
-          <button class="btn-outline !py-2 !px-3 shrink-0" data-copy="bankAlias">Copiar</button>
-        </div>
+         <div>
+           <p class="text-[10px] uppercase tracking-widest text-[color:var(--muted)]">Alias</p>
+           <p class="font-semibold text-sm truncate" id="bankAlias">MALE.XV.FIESTA</p>
+         </div>
         <div>
           <p class="text-[10px] uppercase tracking-widest text-[color:var(--muted)]">CBU</p>
           <p class="font-semibold text-sm tracking-wider break-all" id="bankCbu">0000003100012345678901</p>
         </div>
         <p class="text-xs text-[color:var(--muted)]" id="bankName">Banco Galicia</p>
       </div>
-      <button class="btn-gold mt-5 w-full" data-copy="bankCbu">
+      <button class="btn-gold mt-5 w-full" data-copy="bankAlias">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>
-        ¡Copiar CBU!
+        ¡Copiar Alias!
       </button>
     </article>
   </section>
@@ -372,7 +369,7 @@
     <div class="text-center">
       <h3 class="script text-5xl gold-text reveal">Confirmá</h3>
       <p class="text-xs uppercase tracking-[.3em] text-[color:var(--muted)] mt-2 reveal">tu asistencia</p>
-      <p class="text-sm text-[color:var(--muted)] mt-4 reveal">Por favor, confirmá antes del <span class="font-semibold text-[color:var(--ink)]" id="rsvpLimit">31 de octubre</span>.</p>
+       <p class="text-sm text-[color:var(--ink)] mt-4 reveal font-semibold">Por favor, confirmá antes del <span class="font-bold text-[color:var(--gold)]" id="rsvpLimit">16 de noviembre</span>.</p>
     </div>
 
     <form id="rsvpForm" class="card p-6 mt-7 space-y-4 reveal" novalidate>
@@ -396,7 +393,7 @@
         <textarea id="fMsg" class="field mt-1.5" rows="3" placeholder="¡Dejale unas lindas palabras!"></textarea>
       </div>
       <div>
-        <p class="text-xs text-[color:var(--muted)] mt-1.5">¿Querés compartir una foto con la quinceañera? Mandá la foto por WhatsApp cuando confirmes tu asistencia.</p>
+         <p class="text-sm text-[color:var(--ink)] mt-1.5 font-semibold">¿Querés compartir una foto con la quinceañera? Mandá la foto por WhatsApp cuando confirmes tu asistencia.</p>
       </div>
       <button type="submit" class="btn-gold w-full !text-sm !py-4" style="background:linear-gradient(135deg,#2bd46b,#1da851);box-shadow:0 8px 20px -8px rgba(29,168,81,.7)">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2z"/></svg>
@@ -454,7 +451,7 @@
       musicaLabel: 'TINI · Cupido',
       // ⚠️ Reemplazar por el WhatsApp real que recibe las confirmaciones (sin +, sin espacios)
       whatsapp: '5493834582464',
-      rsvpLimit: '2026-10-31T23:59:59-03:00',
+      rsvpLimit: '2026-11-16T23:59:59-03:00',
       ceremonia: {
         lugar: 'Catedral Basílica de Nuestra Señora del Valle',
         direccion: 'Sarmiento 655, San Fernando del Valle de Catamarca',
