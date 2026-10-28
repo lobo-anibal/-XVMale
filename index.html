@@ -387,14 +387,6 @@
           <label class="chip"><input type="radio" name="attend" value="no"><span>No puedo 😢</span></label>
         </div>
       </div>
-      <div id="guestsWrap">
-        <label class="text-xs uppercase tracking-widest text-[color:var(--muted)]" for="fGuests">Cantidad de personas</label>
-        <div class="flex items-center gap-3 mt-1.5">
-          <button type="button" class="btn-outline !w-11 !h-11 !p-0 text-lg" data-step="-1" aria-label="Restar">−</button>
-          <input id="fGuests" class="field text-center font-semibold" type="number" min="1" max="10" value="1" inputmode="numeric">
-          <button type="button" class="btn-outline !w-11 !h-11 !p-0 text-lg" data-step="1" aria-label="Sumar">+</button>
-        </div>
-      </div>
       <div>
         <label class="text-xs uppercase tracking-widest text-[color:var(--muted)]" for="fDiet">Restricción alimentaria (opcional)</label>
         <input id="fDiet" class="field mt-1.5" type="text" placeholder="Vegetariano, celíaco, etc.">
@@ -404,19 +396,10 @@
         <textarea id="fMsg" class="field mt-1.5" rows="3" placeholder="¡Dejale unas lindas palabras!"></textarea>
       </div>
       <div>
-    <label class="text-xs uppercase tracking-widest text-[color:var(--muted)]" for="fPhoto">Foto con Malena (opcional) 📸</label>
-    <label class="mt-1.5 flex items-center justify-center gap-2 px-4 py-3 border-2 border-dashed border-[color:var(--gold)]/40 rounded-xl text-sm text-[color:var(--muted)] cursor-pointer hover:border-[color:var(--gold)]/70">
-      <input id="fPhoto" type="file" accept="image/*" capture="environment" class="hidden">
-      <span>📎 Seleccionar foto</span>
-    </label>
-    <p class="text-xs text-[color:var(--muted)] mt-1.5">Compartí una foto que tengas con la quinceañera y la incluimos en tu mensaje de WhatsApp.</p>
-    <div id="photoPreview" class="mt-2 hidden">
-      <img id="photoPreviewImg" class="w-20 h-20 object-cover rounded-lg" alt="Vista previa">
-      <span class="text-xs text-[color:var(--muted)] block mt-1" id="photoName"></span>
-    </div>
-  </div>
-  <button type="submit" class="btn-gold w-full !text-sm !py-4" style="background:linear-gradient(135deg,#2bd46b,#1da851);box-shadow:0 8px 20px -8px rgba(29,168,81,.7)">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2z"/></svg>
+        <p class="text-xs text-[color:var(--muted)] mt-1.5">¿Querés compartir una foto con la quinceañera? Mandá la foto por WhatsApp cuando confirmes tu asistencia.</p>
+      </div>
+      <button type="submit" class="btn-gold w-full !text-sm !py-4" style="background:linear-gradient(135deg,#2bd46b,#1da851);box-shadow:0 8px 20px -8px rgba(29,168,81,.7)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2z"/></svg>
         Confirmar por WhatsApp
       </button>
     </form>
@@ -464,34 +447,32 @@
 /* =========================================================
    CONFIGURACIÓN — Editá estos datos y listo ✨
    ========================================================= */
-const CONFIG = {
-  nombre: 'Malena',
-  // 🎵 Música: IDs de YouTube (se prueba el siguiente si uno no se puede reproducir)
-  musicaYoutube: ['QG6Px2KJ3TI', '4k1fm6YNsg8', '_cj_FxABhv8'],
-  musicaLabel: 'TINI · Cupido',
-  // ⚠️ Reemplazar por el WhatsApp real que recibe las confirmaciones (sin +, sin espacios)
-  whatsapp: '5493834582464',
-  // 📸 Client ID público de Imgur (obtenerlo en https://api.imgur.com/oauth2/addclient). Si falta, la foto se omite.
-  imgurClientId: 'TU_CLIENT_ID_AQUI',
-  rsvpLimit: '2026-10-31T23:59:59-03:00',
-  ceremonia: {
-    lugar: 'Catedral Basílica de Nuestra Señora del Valle',
-    direccion: 'Sarmiento 655, San Fernando del Valle de Catamarca',
-    fecha: '2026-11-16T20:00:00-03:00'
-  },
-  fiesta: {
-    lugar: 'Salón El Vergel',
-    direccion: 'San Isidro, Valle Viejo, Catamarca',
-    fecha: '2026-11-20T21:00:00-03:00'
-  },
-  // ⚠️ Datos bancarios de ejemplo: reemplazar por los reales
-  banco: {
-    titular: 'Cordoba Eliana',
-    alias: 'MALE.XV.FIESTA',
-    cbu: '0000003100012345678901',
-    banco: 'Banco Santiago del Estero'
-  }
-};
+    const CONFIG = {
+      nombre: 'Malena',
+      // 🎵 Música: IDs de YouTube (se prueba el siguiente si uno no se puede reproducir)
+      musicaYoutube: ['QG6Px2KJ3TI', '4k1fm6YNsg8', '_cj_FxABhv8'],
+      musicaLabel: 'TINI · Cupido',
+      // ⚠️ Reemplazar por el WhatsApp real que recibe las confirmaciones (sin +, sin espacios)
+      whatsapp: '5493834582464',
+      rsvpLimit: '2026-10-31T23:59:59-03:00',
+      ceremonia: {
+        lugar: 'Catedral Basílica de Nuestra Señora del Valle',
+        direccion: 'Sarmiento 655, San Fernando del Valle de Catamarca',
+        fecha: '2026-11-16T20:00:00-03:00'
+      },
+      fiesta: {
+        lugar: 'Salón El Vergel',
+        direccion: 'San Isidro, Valle Viejo, Catamarca',
+        fecha: '2026-11-20T21:00:00-03:00'
+      },
+      // ⚠️ Datos bancarios de ejemplo: reemplazar por los reales
+      banco: {
+        titular: 'Cordoba Eliana',
+        alias: 'MALE.XV.FIESTA',
+        cbu: '0000003100012345678901',
+        banco: 'Banco Santiago del Estero'
+      }
+    };
 
 /* ---------- Nombre dinámico ---------- */
 document.querySelectorAll('[data-name]').forEach(el => el.textContent = CONFIG.nombre);
@@ -669,84 +650,27 @@ document.querySelectorAll('[data-copy]').forEach(btn => {
   });
 });
 
-/* ---------- RSVP por WhatsApp ---------- */
-const form = document.getElementById('rsvpForm');
-const guests = document.getElementById('fGuests');
-const guestsWrap = document.getElementById('guestsWrap');
-form.querySelectorAll('[data-step]').forEach(b => b.addEventListener('click', () => {
-  guests.value = Math.min(10, Math.max(1, (+guests.value || 1) + +b.dataset.step));
-}));
-guests.addEventListener('blur', () => {
-  const n = parseInt(guests.value, 10);
-  guests.value = Number.isFinite(n) ? Math.min(10, Math.max(1, n)) : 1;
-});
-form.querySelectorAll('input[name="attend"]').forEach(r => r.addEventListener('change', () => {
-  guestsWrap.style.display = form.attend.value === 'si' ? '' : 'none';
-}));
-let uploadedPhotoUrl = null;
-let photoUploading = false;
-
-async function uploadToImgur(file){
-  if (!CONFIG.imgurClientId || CONFIG.imgurClientId === 'TU_CLIENT_ID_AQUI') return null;
-  const fd = new FormData();
-  fd.append('image', file);
-  try {
-    const res = await fetch('https://api.imgur.com/3/image', { method: 'POST', headers: { 'Authorization': `Client-ID ${CONFIG.imgurClientId}` }, body: fd });
-    const json = await res.json();
-    if (json && json.success && json.data && json.data.link) return json.data.link;
-    return null;
-  } catch (e) { return null; }
-}
-
-const photoInput = document.getElementById('fPhoto');
-const photoPreview = document.getElementById('photoPreview');
-const photoPreviewImg = document.getElementById('photoPreviewImg');
-const photoName = document.getElementById('photoName');
-
-photoInput.addEventListener('change', async () => {
-  const file = photoInput.files && photoInput.files[0];
-  uploadedPhotoUrl = null;
-  if (!file) { photoPreview.classList.add('hidden'); return; }
-  if (file.size > 10 * 1024 * 1024){ showToast('La foto supera los 10MB 😕'); photoInput.value = ''; return; }
-  const reader = new FileReader();
-  reader.onload = e => { photoPreviewImg.src = e.target.result; photoPreview.classList.remove('hidden'); photoName.textContent = file.name; };
-  reader.readAsDataURL(file);
-  photoUploading = true;
-  showToast('Subiendo foto…');
-  const url = await uploadToImgur(file);
-  photoUploading = false;
-  if (url){ uploadedPhotoUrl = url; showToast('✓ Foto lista'); }
-  else { showToast('No se pudo subir la foto, se envía sin foto 😕'); }
-});
-
-form.addEventListener('submit', async e => {
-  e.preventDefault();
-  const nameEl = document.getElementById('fName');
-  const name = nameEl.value.trim();
-  if (!name){ nameEl.focus(); nameEl.style.borderColor = '#e07a8a'; showToast('Por favor, ingresá tu nombre'); return; }
-  nameEl.style.borderColor = '';
-  const attend = form.attend.value === 'si';
-  let count = parseInt(guests.value, 10);
-  if (!Number.isFinite(count) || count < 1) count = 1;
-  if (count > 10) count = 10;
-  guests.value = count;
-  const diet = document.getElementById('fDiet').value.trim();
-  const msg = document.getElementById('fMsg').value.trim();
-  let text;
-  if (attend){
-    text = `¡Hola! 🎉 Confirmo mi asistencia a los 15 de ${CONFIG.nombre}.\nMi nombre es *${name}*.\n👥 Asistiremos: ${count} persona${count > 1 ? 's' : ''}.`;
-    if (diet) text += `\n🍽️ Restricción alimentaria: ${diet}.`;
-  } else {
-    text = `¡Hola! Soy *${name}*. Lamentablemente no podré asistir a los 15 de ${CONFIG.nombre} 😢`;
-  }
-  if (msg) text += `\n💌 Mensaje: ${msg}`;
-  if (photoUploading){
-    showToast('Esperando a que termine de subir la foto…');
-    while (photoUploading) await new Promise(r => setTimeout(r, 200));
-  }
-  if (uploadedPhotoUrl) text += `\n📸 Foto: ${uploadedPhotoUrl}`;
-  window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
-});
+    /* ---------- RSVP por WhatsApp ---------- */
+    const form = document.getElementById('rsvpForm');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const nameEl = document.getElementById('fName');
+      const name = nameEl.value.trim();
+      if (!name){ nameEl.focus(); nameEl.style.borderColor = '#e07a8a'; showToast('Por favor, ingresá tu nombre'); return; }
+      nameEl.style.borderColor = '';
+      const attend = form.attend.value === 'si';
+      const diet = document.getElementById('fDiet').value.trim();
+      const msg = document.getElementById('fMsg').value.trim();
+      let text;
+      if (attend){
+        text = `¡Hola! 🎉 Confirmo mi asistencia a los 15 de ${CONFIG.nombre}.\nMi nombre es *${name}*.`;
+        if (diet) text += `\n🍽️ Restricción alimentaria: ${diet}.`;
+      } else {
+        text = `¡Hola! Soy *${name}*. Lamentablemente no podré asistir a los 15 de ${CONFIG.nombre} 😢`;
+      }
+      if (msg) text += `\n💌 Mensaje: ${msg}`;
+      window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
+    });
 
 /* ---------- Reveal on scroll ---------- */
 const io = new IntersectionObserver(entries => {
