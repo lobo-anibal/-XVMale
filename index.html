@@ -321,7 +321,7 @@
       <h4 class="serif text-3xl mt-4">Dress Code</h4>
       <div class="gold-line w-16 mx-auto my-3"></div>
       <p class="script text-4xl gold-text">Elegante</p>
-      <p class="text-sm text-[color:var(--muted)] mt-2 leading-relaxed">Vestido largo o de cóctel · Traje formal.<br>Te pedimos amablemente evitar el color <span class="font-semibold text-[color:#a97f43]">dorado</span>, reservado para la quinceañera ✨</p>
+      <p class="text-sm text-[color:var(--muted)] mt-2 leading-relaxed">Te pedimos amablemente evitar el color <span class="font-semibold text-[color:#a97f43]">dorado</span>, reservado para la quinceañera ✨</p>
       <div class="flex justify-center gap-2 mt-4" aria-label="Paleta sugerida">
         <span class="w-7 h-7 rounded-full border border-white shadow" style="background:#1f1f2b"></span>
         <span class="w-7 h-7 rounded-full border border-white shadow" style="background:#5b6b8a"></span>
@@ -338,7 +338,8 @@
       </div>
       <h4 class="serif text-3xl mt-4">Regalos</h4>
       <div class="gold-line w-16 mx-auto my-3"></div>
-      <p class="text-sm text-[color:var(--muted)] leading-relaxed">Tu presencia es mi mejor regalo. Si además querés hacerme un obsequio, habrá <span class="font-semibold text-[color:var(--ink)]">lluvia de sobres</span> el día del evento, o podés transferir a:</p>
+      <p class="text-sm text-[color:var(--muted)] leading-relaxed">Tu presencia es mi mejor regalo. Si además querés hacerme un obsequio.</p>
+      <p class="text-sm text-[color:var(--muted)] leading-relaxed mt-2">Te comparto mi alias</p>
 
       <!-- ⚠️ Datos bancarios de ejemplo: reemplazar por los reales en CONFIG.banco -->
       <div class="mt-5 rounded-2xl bg-[color:var(--blush)]/60 border border-[color:var(--gold)]/30 p-4 text-left space-y-3">
@@ -457,7 +458,7 @@ const CONFIG = {
   musicaYoutube: ['QG6Px2KJ3TI', '4k1fm6YNsg8', '_cj_FxABhv8'],
   musicaLabel: 'TINI · Cupido',
   // ⚠️ Reemplazar por el WhatsApp real que recibe las confirmaciones (sin +, sin espacios)
-  whatsapp: '5491112345678',
+  whatsapp: '5493834688070',
   rsvpLimit: '2026-10-31T23:59:59-03:00',
   ceremonia: {
     lugar: 'Catedral Basílica de Nuestra Señora del Valle',
@@ -471,10 +472,10 @@ const CONFIG = {
   },
   // ⚠️ Datos bancarios de ejemplo: reemplazar por los reales
   banco: {
-    titular: 'María Laura Gómez',
+    titular: 'Cordoba Eliana',
     alias: 'MALE.XV.FIESTA',
     cbu: '0000003100012345678901',
-    banco: 'Banco Galicia'
+    banco: 'Banco Santiago del Estero'
   }
 };
 
@@ -499,7 +500,11 @@ const fmtShort = iso => new Intl.DateTimeFormat('es-AR', {
   document.getElementById(k + 'Place').textContent = p.lugar;
   document.getElementById(k + 'Addr').textContent = p.direccion;
   document.getElementById(k + 'Date').textContent = fmtDate(p.fecha);
-  document.getElementById(k + 'Time').textContent = fmtTime(p.fecha);
+  if (k === 'par') {
+    document.getElementById(k + 'Time').textContent = '21:00 hs a 4:00 hs';
+  } else {
+    document.getElementById(k + 'Time').textContent = fmtTime(p.fecha);
+  }
 });
 
 document.getElementById('heroDate').textContent = fmtShort(CONFIG.fiesta.fecha);
