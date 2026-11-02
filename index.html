@@ -131,8 +131,8 @@
   @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
   /* Music */
   #musicBtn{transition:transform .2s}
-  #musicBtn{bottom:calc(1.25rem + env(safe-area-inset-bottom));right:calc(1.25rem + env(safe-area-inset-right))}
-  #nowPlaying{bottom:calc(1.75rem + env(safe-area-inset-bottom));right:calc(5.25rem + env(safe-area-inset-right))}
+  #musicBtn{bottom:calc(1.25rem + env(safe-area-inset-bottom));left:calc(1.25rem + env(safe-area-inset-left))}
+  #nowPlaying{bottom:calc(1.75rem + env(safe-area-inset-bottom));left:calc(5.25rem + env(safe-area-inset-left))}
   #musicBtn.playing .disc{animation:spin 4s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
   .bars span{display:inline-block;width:3px;margin:0 1px;background:#fff;border-radius:2px;height:4px}
@@ -213,7 +213,7 @@
 
 <!-- ============ BOTÓN MÚSICA ============ -->
 <button id="musicBtn" aria-label="Reproducir música"
-  class="fixed z-50 bottom-5 right-5 w-14 h-14 rounded-full grid place-items-center text-white"
+  class="fixed z-50 bottom-5 left-5 w-14 h-14 rounded-full grid place-items-center text-white"
   style="background:linear-gradient(135deg,#d4b47e,#b48a4f);box-shadow:0 10px 25px -8px rgba(140,100,50,.8)">
   <span class="disc absolute inset-1 rounded-full border border-white/40"></span>
   <span class="bars flex items-end h-4" id="bars"><span></span><span></span><span></span></span>
@@ -223,7 +223,7 @@
   <div id="ytPlayer"></div>
 </div>
 <!-- Etiqueta "Sonando" -->
-<div id="nowPlaying" class="fixed z-50 bottom-7 right-[5.25rem] px-3 py-1.5 rounded-full bg-white/90 text-[11px] text-[color:var(--ink)] shadow-md border border-[color:var(--gold)]/30 opacity-0 translate-x-2 transition-all duration-500 pointer-events-none">
+<div id="nowPlaying" class="fixed z-50 bottom-7 left-[5.25rem] px-3 py-1.5 rounded-full bg-white/90 text-[11px] text-[color:var(--ink)] shadow-md border border-[color:var(--gold)]/30 opacity-0 -translate-x-2 transition-all duration-500 pointer-events-none">
   🎶 <span class="font-semibold" id="npLabel">TINI · Cupido</span>
 </div>
 
@@ -435,7 +435,7 @@
   <!-- ============ FOOTER ============ -->
   <footer class="px-6 pt-10 pb-24 text-center" style="background:linear-gradient(180deg,var(--cream),var(--blush))">
     <p class="serif italic text-lg text-[color:var(--muted)]">¡Te espero para vivir juntos esta noche mágica!</p>
-    <p class="script text-6xl gold-text mt-3" data-name>Malena</p>
+    <p class="script text-6xl gold-text mt-8 leading-[1.3]" data-name>Malena</p>
     <div class="gold-line w-24 mx-auto my-5"></div>
     <p class="text-[10px] uppercase tracking-[.3em] text-[color:var(--muted)]">#XVdeMale</p>
   </footer>
@@ -555,9 +555,9 @@ function setPlaying(on){
   musicBtn.classList.toggle('playing', on);
   musicBtn.setAttribute('aria-label', on ? 'Pausar música' : 'Reproducir música');
   if (on){
-    nowPlaying.classList.remove('opacity-0', 'translate-x-2');
+    nowPlaying.classList.remove('opacity-0', '-translate-x-2');
     clearTimeout(npTimer);
-    npTimer = setTimeout(() => nowPlaying.classList.add('opacity-0', 'translate-x-2'), 4000);
+    npTimer = setTimeout(() => nowPlaying.classList.add('opacity-0', '-translate-x-2'), 4000);
   }
 }
 
