@@ -199,6 +199,9 @@
   </p>
 </noscript>
 
+<!-- ============ DESTELLOS (TODA LA PÁGINA) ============ -->
+<div id="sparkles" class="fixed inset-0 z-[5] pointer-events-none" aria-hidden="true"></div>
+
 <!-- ============ INTRO / SOBRE ============ -->
 <div id="intro" class="fixed inset-0 z-[60] flex flex-col items-center justify-center text-center px-8"
      style="background:linear-gradient(170deg,#fbeef0 0%,#f7e4e6 50%,#f2d6da 100%)">
@@ -231,7 +234,6 @@
 
   <!-- ============ HERO ============ -->
   <section id="inicio" class="hero-bg relative min-h-[100svh] flex flex-col items-center justify-center text-center px-6 pt-16 pb-24 overflow-hidden">
-    <div id="sparkles" class="absolute inset-0"></div>
     <p class="serif italic text-lg text-[color:var(--muted)] reveal">Te invito a celebrar</p>
     <h2 class="serif uppercase tracking-[.35em] text-sm mt-1 text-[color:var(--ink)] reveal">¡Mis 15 Años!</h2>
 
@@ -701,12 +703,13 @@ function revealInView(){
   reveals.forEach(el => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add('in'); });
 }
 
-/* ---------- Destellos en portada ---------- */
+/* ---------- Destellos en toda la página ---------- */
 const sp = document.getElementById('sparkles');
-for (let i = 0; i < 22; i++){
+for (let i = 0; i < 40; i++){
   const s = document.createElement('span'); s.className = 'sparkle';
   s.style.left = Math.random() * 100 + '%'; s.style.top = Math.random() * 100 + '%';
   s.style.animationDelay = (Math.random() * 3).toFixed(2) + 's';
+  s.style.animationDuration = (2.5 + Math.random() * 2.5).toFixed(2) + 's';
   const sz = 3 + Math.random() * 6; s.style.width = s.style.height = sz + 'px';
   sp.appendChild(s);
 }
