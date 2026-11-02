@@ -93,14 +93,26 @@
       radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.75), rgba(255,255,255,0) 55%),
       linear-gradient(180deg,#fff7f5 0%, #fbeef0 45%, #f3d9dd 100%);
   }
-  .arch{
-    border-radius:999px 999px 1.5rem 1.5rem;
-    overflow:hidden;
-    border:6px solid #fff;
-    outline:1px solid var(--gold);
-    outline-offset:6px;
-    box-shadow:0 25px 50px -20px rgba(120,60,70,.45);
+  .hero-slide{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity 1.2s ease-in-out;
+    z-index:0;
+    display:block;
+    visibility:hidden;
+    pointer-events:none;
   }
+  .hero-slide.active{
+    opacity:1;
+    z-index:2;
+    visibility:visible;
+    pointer-events:none;
+  }
+  .arch{position:relative;overflow:hidden}
   .float{animation:float 6s ease-in-out infinite}
   @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
   .scroll-hint{animation:bounce 2s infinite}
@@ -176,6 +188,7 @@
     html{scroll-behavior:auto}
     *{animation:none!important;transition:none!important}
     .reveal{opacity:1;transform:none}
+    .hero-slide{transition:none!important}
   }
 </style>
 </head>
@@ -229,10 +242,11 @@
     <p class="serif italic text-lg text-[color:var(--muted)] reveal">Te invito a celebrar</p>
     <h2 class="serif uppercase tracking-[.35em] text-sm mt-1 text-[color:var(--ink)] reveal">¡Mis 15 Años!</h2>
 
-    <div class="arch float w-60 h-80 mt-8 reveal">
-      <!-- 📸 Foto de Malena: guardá su foto como "malena.jpg" en la misma carpeta que este archivo -->
-      <img src="Fotos/Malena.jpeg"
-           alt="Malena, la quinceañera" class="w-full h-full object-cover" style="object-position:68% 85%" fetchpriority="high">
+    <div class="arch float w-60 h-80 mt-8 reveal relative" id="heroCarousel" aria-label="Carrusel de fotos de Malena">
+      <!-- 📸 Carrusel de fotos de Malena -->
+      <img src="Fotos/Malena.jpeg" class="hero-slide active" alt="Malena, la quinceañera - foto 1" style="object-position:68% 85%" fetchpriority="high" decoding="sync">
+      <img src="Fotos/Malena1.jpeg" class="hero-slide" alt="Malena, la quinceañera - foto 2" style="object-position:50% 80%" loading="eager" decoding="async">
+      <img src="Fotos/Malena2.jpg" class="hero-slide" alt="Malena, la quinceañera - foto 3" style="object-position:60% 85%" loading="eager" decoding="async">
     </div>
 
     <h1 class="script text-7xl gold-text mt-8 leading-none reveal" data-name>Malena</h1>
@@ -406,13 +420,25 @@
     <h3 class="script text-5xl gold-text reveal">Momentos</h3>
     <p class="text-xs uppercase tracking-[.3em] text-[color:var(--muted)] mt-2 reveal">que atesoro</p>
     <div class="gallery grid grid-cols-2 gap-3 mt-8">
-      <!-- 📸 Las demás fotos de la galería son de ejemplo: reemplazalas por fotos reales de Malena -->
-      <figure class="row-span-2 rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" style="object-position:68% 85%" src="Fotos/Malena.jpeg" alt="Malena"></figure>
-      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="https://images.pexels.com/photos/28921587/pexels-photo-28921587.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Galería 2"></figure>
-      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="https://images.pexels.com/photos/37928509/pexels-photo-37928509.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Galería 3"></figure>
-      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="https://images.pexels.com/photos/17697342/pexels-photo-17697342.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Galería 4"></figure>
-      <figure class="row-span-2 rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="https://images.pexels.com/photos/20017326/pexels-photo-20017326.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Galería 5"></figure>
-      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="https://images.pexels.com/photos/33951952/pexels-photo-33951952.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Galería 6"></figure>
+      <figure class="row-span-2 rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (1).jpg" alt="Male (1)" title="Male (1)"></figure>
+      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (2).jpg" alt="Male (2)" title="Male (2)"></figure>
+      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (3).jpg" alt="Male (3)" title="Male (3)"></figure>
+      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (4).jpg" alt="Male (4)" title="Male (4)"></figure>
+      <figure class="row-span-2 rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (5).jpg" alt="Male (5)" title="Male (5)"></figure>
+      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (6).jpg" alt="Male (6)" title="Male (6)"></figure>
+      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (7).jpg" alt="Male (7)" title="Male (7)"></figure>
+      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (8).jpg" alt="Male (8)" title="Male (8)"></figure>
+      <figure class="row-span-2 rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (9).jpg" alt="Male (9)" title="Male (9)"></figure>
+      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (10).jpg" alt="Male (10)" title="Male (10)"></figure>
+      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (11).jpg" alt="Male (11)" title="Male (11)"></figure>
+      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (12).jpg" alt="Male (12)" title="Male (12)"></figure>
+      <figure class="row-span-2 rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (13).jpg" alt="Male (13)" title="Male (13)"></figure>
+      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (14).jpg" alt="Male (14)" title="Male (14)"></figure>
+      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (15).jpg" alt="Male (15)" title="Male (15)"></figure>
+      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (16).jpg" alt="Male (16)" title="Male (16)"></figure>
+      <figure class="row-span-2 rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (17).jpg" alt="Male (17)" title="Male (17)"></figure>
+      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (18).jpg" alt="Male (18)" title="Male (18)"></figure>
+      <figure class="aspect-square rounded-2xl overflow-hidden shadow-md cursor-zoom-in reveal"><img loading="lazy" class="w-full h-full object-cover" src="Fotos/Momentos/Male (19).jpg" alt="Male (19)" title="Male (19)"></figure>
     </div>
   </section>
 
@@ -668,7 +694,31 @@ document.querySelectorAll('[data-copy]').forEach(btn => {
       window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
     });
 
-/* ---------- Reveal on scroll ---------- */
+/* ---------- Carrusel portada ---------- */
+  (function(){
+    function initHeroCarousel(){
+      const heroCarousel = document.getElementById('heroCarousel');
+      if (!heroCarousel) return;
+      const heroSlides = Array.from(heroCarousel.querySelectorAll('.hero-slide'));
+      if (heroSlides.length <= 1) return;
+      const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (mq && mq.matches) return;
+      let heroIdx = heroSlides.findIndex(s => s.classList.contains('active'));
+      if (heroIdx < 0) heroIdx = 0;
+      setInterval(function(){
+        heroSlides[heroIdx].classList.remove('active');
+        heroIdx = (heroIdx + 1) % heroSlides.length;
+        heroSlides[heroIdx].classList.add('active');
+      }, 4000);
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHeroCarousel, { once: true });
+    } else {
+      initHeroCarousel();
+    }
+  })();
+
+  /* ---------- Reveal on scroll ---------- */
 const io = new IntersectionObserver(entries => {
   entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
@@ -689,11 +739,11 @@ for (let i = 0; i < 22; i++){
 }
 
 /* ---------- Lightbox galería ---------- */
-const imgs = [...document.querySelectorAll('.gallery img')];
-const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg');
-let cur = 0;
-const showLb = i => { cur = (i + imgs.length) % imgs.length; lbImg.src = imgs[cur].src.replace('w=500', 'w=1200'); lb.classList.remove('hidden-lb'); };
-const hideLb = () => lb.classList.add('hidden-lb');
+  const imgs = [...document.querySelectorAll('.gallery img')];
+  const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg');
+  let cur = 0;
+  const showLb = i => { cur = (i + imgs.length) % imgs.length; lbImg.src = imgs[cur].src.replace('w=500', 'w=1200').replace(/\?[^?]*$/, ''); lb.classList.remove('hidden-lb'); };
+  const hideLb = () => lb.classList.add('hidden-lb');
 imgs.forEach((im, i) => {
   const fig = im.parentElement;
   fig.tabIndex = 0;
