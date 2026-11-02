@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mock galería · Variante B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style>
+  :root{
+    --blush:#f7e4e6;
+    --rose:#d99aa5;
+    --gold:#c5a067;
+    --gold-2:#e6cf9f;
+    --ink:#4b3a3f;
+    --muted:#8a7479;
+    --cream:#fffaf7;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:'Montserrat',system-ui,sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.75), rgba(255,255,255,0) 55%),
+      linear-gradient(180deg,#fff7f5 0%, #fbeef0 45%, #f3d9dd 100%);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:2.5rem 1.25rem;
+  }
+  .wrap{width:100%;max-width:26rem;text-align:center}
+  .script{font-family:'Great Vibes',cursive;font-weight:400}
+  .gold-text{
+    background:linear-gradient(120deg,#a97f43 0%,#e6cf9f 40%,#c5a067 60%,#8f6a35 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .badge{
+    display:inline-block;margin-bottom:1.25rem;
+    font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;
+    color:#9a7642;border:1px solid rgba(197,160,103,.45);
+    padding:.4rem .9rem;border-radius:999px;background:rgba(255,255,255,.6);
+  }
+  .title{font-size:3rem;margin:0 0 .25rem}
+  .sub{font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:1.05rem;color:var(--muted);margin:0 0 1.75rem}
+
+  /* ===== Variante B · Columnas espejadas ===== */
+  .m-gallery{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:.75rem;
+    aspect-ratio:10 / 11;
+  }
+  .m-col{display:grid;gap:.75rem;min-height:0}
+  .m-col.left{grid-template-rows:2fr 1fr}
+  .m-col.right{grid-template-rows:1fr 2fr}
+  .m-col figure{
+    margin:0;overflow:hidden;border-radius:1rem;
+    box-shadow:0 10px 24px -14px rgba(150,90,100,.5);
+    cursor:zoom-in;min-height:0;
+  }
+  .m-col img{
+    width:100%;height:100%;object-fit:cover;object-position:center 28%;
+    display:block;transition:transform .6s ease;
+  }
+  .m-col figure:hover img{transform:scale(1.05)}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="badge">Mock · Variante B · Columnas espejadas</span>
+    <h1 class="script gold-text title">#XVdeMale</h1>
+    <p class="sub">Simetría rotacional · 2 fotos grandes + 2 chicas</p>
+
+    <div class="m-gallery">
+      <div class="m-col left">
+        <figure><img src="Fotos/Momentos/Male%20(1).jpeg" alt="Male (1)"></figure>
+        <figure><img src="Fotos/Momentos/Male%20(2).jpeg" alt="Male (2)"></figure>
+      </div>
+      <div class="m-col right">
+        <figure><img src="Fotos/Momentos/Male%20(3).jpeg" alt="Male (3)"></figure>
+        <figure><img src="Fotos/Momentos/Male%20(4).jpeg" alt="Male (4)"></figure>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
